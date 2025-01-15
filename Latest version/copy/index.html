@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>our cars</title>
+  <!-- links -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="../copy/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+  <!-- start nav -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="#">
+                <img src="imgs/1730475449004.png" alt="">
+            </a>
+            <a class="navbar-brand d-md-none d-sm-none d-lg-inline-block" href="index.html">Moonlight motors</a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main"
+            aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="main">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active p-2 p-lg-3" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-2 p-lg-3" href="maintenance.html">Maintenance Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-2 p-lg-3" href="Rentals.html">Car Rentals</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link p-2 p-lg-3" href="SpareParts.html">Spart Parts</a>
+              </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link p-2 p-lg-3" href="AboutUs.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-2 p-lg-3" href="sales.html">Sales Car</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="loginabood.html" class="btn btn-secondary rounded-pill p-3" id="login">Login</a>
+                </li>
+            </ul>
+
+            <div class="search ps-3 pe-3 " id="search">
+                <a href="cart.html" class="nav-link nav-item d-inline-block" >
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+                <div class="nav-item dropdown d-inline-block">
+                    <a class="nav-link dropdown-toggle p-2 p-lg-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="Welcome">
+                        Welcome, User
+                    </a>
+                    <ul class="dropdown-menu p-2 p-lg-3" id="dropdown">
+                        <li><a class="dropdown-item" href="Editeprofile.html" >Edit profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="cart.html" >Cart</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" onclick="logout()" >Logout</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+  <!--start landing  -->
+  <section >
+    <img id="bg" src="../copy/imgs/bg.jpg" alt="">
+    <img id="moon" src="../copy/imgs/moon.png" alt="">
+    <img id="mountain" src="../copy/imgs/mountain.png" alt="">
+    <img id="road" src="../copy/imgs/road.png" alt="">
+    <h3 id="text" class="text-center">Moonlight Motors</h3>
+</section>
+
+  <!-- end landing -->
+
+   <!-- start project  -->
+   
+  <!-- start project  -->
+  <div class="project py-5">
+    <div class=" container text-center py-5">
+       <h1 id="project-h1"> Start your journey with your car now </h1>
+      <p id="project-p">Choose your favorite car and let us handle the rest. Don't worry, you can cancel anytime.</p>
+      <a id="project-a" href="#" class="btn btn-secondary rounded-pill p-3">Go to Sales Page</a>
+    </div>
+  </div>
+  <!-- end project  -->
+
+  <!-- end project  -->
+
+  <!-- start features -->
+  <div id="features_main-title" class="features text-center pt-5 pb-5">
+    <div class="container">
+      <div class="main-title mt-5 position-relative">
+        <i class="fa-solid fa-cogs mb-5 car"></i>
+        <h2>SERVICES</h2>
+        <p class="text-black-50 "> Your Trusted Partner for All Automotive Needs</p>
+      </div>
+      <div id="features-feat" class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="feat">
+            <div class="icon-holder position-relative">
+              <i class="fa-solid fa-1 position-absolute bottom-0 number"></i>
+              <i class="fa-solid fa-car fa-4x position-absolute bottom-0 icon"></i>
+            </div>
+            <h4 class="mb-4 pt-3 text-uppercase">Vehicles</h4>
+            <p class="text-black-50 lh-lg">choose from a selection of brand-new and certified pre-owned cars, ensuring
+              quality and reliability in every purchase.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feat">
+            <div class="icon-holder position-relative">
+              <i class="fa-solid fa-2 position-absolute bottom-0 number"></i>
+              <i class="fa-solid fa-key fa-4x position-absolute bottom-0 icon"></i>
+            </div>
+            <h4 class="mb-4 pt-3 text-uppercase">CAR RENTAL</h4>
+            <p class="text-black-50 lh-lg">Our car rental service offers a wide range of vehicles tailored to your
+              needs, whether for short-term or long-term rentals. Flexible, affordable, and reliable options available
+              for any journey</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feat">
+            <div class="icon-holder position-relative">
+              <i class="fa-solid fa-3 position-absolute bottom-0 number"></i>
+              <i class="fa-solid fa-wrench fa-4x position-absolute bottom-0 icon"></i>
+            </div>
+            <h4 class="mb-4 pt-3 text-uppercase">MAINTENANCE</h4>
+            <p class="text-black-50 lh-lg">We offer comprehensive car maintenance services, from routine check-ups to
+              complex repairs. Our shop is also fully stocked with high-quality spare parts to keep your vehicle in top
+              condition..</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end features -->
+
+  <!-- start our work out -->
+  <div class="our-work text-center pt-5 pb-5">
+    <div class="container">
+      <div  id="work-main_title" class="main-title mt-5 position-relative">
+        <h2>We Are Good At</h2>
+        <p>Explore Our Services in Sales, Rentals, and Maintenance</p>
+      </div>
+
+      <ul class="list-unstyled d-flex justify-content-center mt-5 mb-5">
+        <li id="vehicles" class="active rounded-pill">Vehicles</li>
+        <li id="sales" class="rounded-pill"   >Sales</li>
+        <li id="rentals" class="rounded-pill" onclick=" RentCar() ">Rentals</li>
+        <li id="spare-parts" class="rounded-pill">Spare Parts</li>
+      </ul>
+
+      <div id="cards-container" class="row"></div>
+      <div id="buttons-container" class="mt-5 col-12 text-center"></div>
+    </div>
+  </div>
+
+  <!-- end our work out -->
+  <!-- start our team  -->
+
+  <div class="container my-5">
+
+    <div class="main-title text-center mb-5">
+      <h1>Meet our team</h1>
+    </div>
+    <div class="row d-flex justify-content-around">
+      <div class="col-sm-12 col-md-6 col-lg-4 ">
+        <div class="team-card border-0 shadow-sm ">
+
+          <div class="image m-0 p-0 ">
+            <img class="img-fluid"
+              src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg">
+          </div>
+
+          <div class="details m-0 p-4">
+            <h4 class="mb-1">Abdalrahman</h4>
+            <p class="text-secondary mb-0">software engineer</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 ">
+        <div class="team-card border-0 shadow-sm ">
+
+          <div class="image m-0 p-0">
+            <img class="img-fluid"
+              src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg">
+          </div>
+
+          <div class="details m-0 p-4">
+            <h4 class="mb-1">Abdullah</h4>
+            <p class="text-secondary mb-0">software engineer</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- end our team -->
+
+
+  <!-- staring social -->
+    <!-- star social -->
+    <div class="social">
+      <div class="section d-flex justify-content-around p-4">
+        <div class="me-5">
+          <span class="text-white">Get connected with us on social networks:</span>
+        </div>
+        <div>
+          <a href="https://web.facebook.com/abood.wgt3?mibextid=wwXIfr&rdid=R8jfoVUBVtRO36Bo&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F1KMjuGVgPM%2F%3Fmibextid%3DwwXIfr%26_rdc%3D1%26_rdr" class="me-4 text-decoration-none">
+            <i class="fa-brands fa-facebook text-white"></i>
+          </a>
+          <a href="" class="me-4 text-decoration-none">
+            <i class="fa-brands fa-twitter text-white"></i>
+          </a>
+          <a href="https://www.google.com/" class="me-4 text-decoration-none">
+            <i class="fa-brands fa-google text-white"></i>
+          </a>
+          <a href="https://www.instagram.com/abdullah.mkhzoumi/" class="me-4 text-decoration-none">
+            <i class="fa-brands fa-instagram text-white"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/abdalrahman-janajrah-736470243?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="me-4 text-decoration-none text-white">
+            <i class="fa-brands fa-linkedin text-white"></i>
+          </a>
+          <a href="" class="me-4 text-decoration-none text-white">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- end social -->
+  
+    <!-- start footer -->
+    <div class="footer">
+      <div class="container pt-2">
+        <div class=" text-start">
+          <div class="section ">
+            <div class="container text-start text-md-start mt-5">
+              <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                  <!-- Content -->
+                  <h6 class="text-uppercase fw-bold">Moonlight Motors</h6>
+                  <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #fff; height: 2px" />
+                  <p>
+                    We strive to provide the best services in car sales, rentals, spare parts, and high-quality
+                    maintenance. Your comfort and trust are our priority.
+                  </p>
+                </div>
+                <!-- Grid column -->
+                <div class="footer-links col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 ">
+                  <!-- Links -->
+                  <h6 class="text-uppercase fw-bold">Useful links</h6>
+                  <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #fff; height: 2px" />
+                  <p>
+                    <a href="maintenance.html" class="text-white text-decoration-none">Book a Maintenance Appointment</a>
+                  </p>
+                  <p>
+                    <a href="cart.html" class="text-white text-decoration-none">Cart </a>
+                  </p>
+                  <p>
+                    <a href="AboutUs.html" class="text-white text-decoration-none">About Us </a>
+                  </p>
+                </div>
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-0">
+                  <!-- Links -->
+                  <h6 class="text-uppercase fw-bold">Contact</h6>
+                  <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #fff; height: 2px" />
+                  <p><i class="fas fa-home mr-3"></i> zarqa</p>
+                  <p><i class="fas fa-envelope mr-3"></i> admin@Moonlight.motors</p>
+                  <p><i class="fas fa-phone mr-3"></i> +962785667753</p>
+                  <p><i class="fas fa-print mr-3"></i> +962775617013</p>
+                </div>
+                <!-- Grid column -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- end footer -->
+  <!-- java script links -->
+  <script src="../copy/js/Parallax.js"></script>
+  <script src="../copy/js/workout.js"></script>
+  <script src="../copy/js/bootstrap.bundle.min.js"></script>
+  <script src="../copy/js/all.min.js"></script>
+  <script src="../copy/js/ShowAndHide.js"></script>
+</body>
+</html>

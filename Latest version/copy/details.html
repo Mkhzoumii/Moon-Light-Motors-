@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <!-- links -->
+    <link rel="stylesheet" href="../copy/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../copy/css/all.min.css" />
+    <link rel="stylesheet" href="../copy/css/details.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <div>
+                <a class="navbar-brand" href="#">
+                    <img src="imgs/1730475449004.png" alt="">
+                </a>
+                <a class="navbar-brand d-md-none d-sm-none d-lg-inline-block" href="index.html">Moonlight motors</a>
+            </div>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main"
+                aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="main">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link  p-2 p-lg-3" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-2 p-lg-3" href="maintenance.html">Maintenance Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-2 p-lg-3" href="Rentals.html">Car Rentals</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link p-2 p-lg-3" href="SpareParts.html">Spart Parts</a>
+                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-2 p-lg-3" href="AboutUs.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-2 p-lg-3" href="AboutUs.html">Contact</a>
+                    </li>
+    
+                    <li class="nav-item d-lg-none" id="editProfileLink">
+                        <a class="nav-link p-2 p-lg-3" href="#">Edit profile</a>
+                    </li>
+                    <li class="nav-item d-lg-none" id="cartLink">
+                        <a class="nav-link p-2 p-lg-3" href="cart.html" id="cart">Cart</a>
+                    </li>
+                    <li class="nav-item d-lg-none">
+                        <a href="Login.html" class="btn btn-secondary rounded-pill p-3" id="login">Login</a>
+                    </li>
+                </ul>
+    
+                <div class="search ps-3 pe-3 d-none d-lg-block">
+                    <a href="cart.html" class="nav-link nav-item d-inline-block" id="cartDesktopLink">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div class="nav-item dropdown d-inline-block">
+                        <a class="nav-link dropdown-toggle p-2 p-lg-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Welcome, User
+                        </a>
+                        <ul class="dropdown-menu p-2 p-lg-3">
+                            <li><a class="dropdown-item" href="#">Edit profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="cart.html">Cart</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Product Section -->
+    <div class="py-5 product">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row align-items-center text-lg-start text-md-start text-sm-center">
+                <div class="col-md-6">
+                    <!-- Image Gallery -->
+                    <div id="image-gallery" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="carousel-images">
+                            <!-- Example of image slides -->
+                            <div class="carousel-item active">
+                                <img src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" class="d-block w-100" alt="Car Image" id="img">
+                            </div>
+                            <!-- You can dynamically add more carousel-item divs here -->
+                        </div>
+                        <button id="prev-button" class="carousel-control-prev" type="button">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button id="next-button" class="carousel-control-next" type="button">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h1 class="fw-bolder" id="CarName">Car Name</h1>
+                    <div class="fs-5 mb-3"><span id="CarPrise"></span></div>
+                    <p class="fs-5" id="CarDetails">Lorem ipsum dolor sit amet consectetur, adipisicing elit...</p>
+                    <button type="button" class="btn btn-danger btn-block" id="BUILD">
+                        <small>BUILD & PRICE</small>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Items Section -->
+    <div class="details-icons"></div>
+    <!-- star social -->
+    <div class="social">
+        <div class="section d-flex justify-content-around p-4">
+          <div class="me-5">
+            <span class="text-white">Get connected with us on social networks:</span>
+          </div>
+          <div>
+            <a href="https://web.facebook.com/abood.wgt3?mibextid=wwXIfr&rdid=R8jfoVUBVtRO36Bo&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F1KMjuGVgPM%2F%3Fmibextid%3DwwXIfr%26_rdc%3D1%26_rdr" class="me-4 text-decoration-none">
+              <i class="fa-brands fa-facebook text-white"></i>
+            </a>
+            <a href="" class="me-4 text-decoration-none">
+              <i class="fa-brands fa-twitter text-white"></i>
+            </a>
+            <a href="https://www.google.com/" class="me-4 text-decoration-none">
+              <i class="fa-brands fa-google text-white"></i>
+            </a>
+            <a href="https://www.instagram.com/abdullah.mkhzoumi/" class="me-4 text-decoration-none">
+              <i class="fa-brands fa-instagram text-white"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/abdalrahman-janajrah-736470243?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="me-4 text-decoration-none text-white">
+              <i class="fa-brands fa-linkedin text-white"></i>
+            </a>
+            <a href="" class="me-4 text-decoration-none text-white">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- end social -->
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container pt-2">
+          <div class=" text-start">
+            <div class="section ">
+              <div class="container text-start text-md-start mt-5">
+                <div class="row mt-3">
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold">Moonlight Motors</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #fff; height: 2px" />
+                    <p>
+                      We strive to provide the best services in car sales, rentals, spare parts, and high-quality
+                      maintenance. Your comfort and trust are our priority.
+                    </p>
+                  </div>
+                  <!-- Grid column -->
+                  <div class="footer-links col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 ">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold">Useful links</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #fff; height: 2px" />
+                    <p>
+                      <a href="maintenance.html" class="text-white text-decoration-none">Book a Maintenance Appointment</a>
+                    </p>
+                    <p>
+                      <a href="cart.html" class="text-white text-decoration-none">Cart </a>
+                    </p>
+                    <p>
+                      <a href="AboutUs.html" class="text-white text-decoration-none">About Us </a>
+                    </p>
+                  </div>
+                  <!-- Grid column -->
+                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-0">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold">Contact</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #fff; height: 2px" />
+                    <p><i class="fas fa-home mr-3"></i> zarqa</p>
+                    <p><i class="fas fa-envelope mr-3"></i> admin@Moonlight.motors</p>
+                    <p><i class="fas fa-phone mr-3"></i> +962785667753</p>
+                    <p><i class="fas fa-print mr-3"></i> +962775617013</p>
+                  </div>
+                  <!-- Grid column -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    <!-- Modal for Build & Price -->
+    <div class="modal fade" id="rentModal" tabindex="-1" aria-labelledby="rentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rentModalLabel">Build & Price</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="rentForm">
+                        <div class="mb-3">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="endDate" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="endDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Gallery Navigation -->
+    <!-- <div id="image-container" class="d-flex justify-content-center align-items-center">
+        <button id="prev-button" class="arrow-button">&#8592;</button>
+        <img id="img" src="path/to/default/image" alt="Car Image" class="img-fluid">
+        <button id="next-button" class="arrow-button">&#8594;</button>
+    </div> -->
+
+    <!-- JavaScript -->
+    <script src="../copy/js/CarDetails.js"></script>
+    <script>
+        // التحقق من وجود اسم المستخدم في localStorage
+        window.onload = function() {
+            const userName = localStorage.getItem("firstName");
+            const userGreeting = document.querySelector(".nav-item .dropdown-toggle");
+    
+            if (userName) {
+                // إذا كان يوجد اسم مستخدم، عرض اسمه في الـ nav
+                userGreeting.textContent = `Welcome, ${userName}`;
+                // إخفاء زر "Login"
+                document.getElementById("login").style.display = "none";
+                // إظهار زر "Edit profile" و "Cart"
+                document.getElementById("editProfileLink").style.display = "block";
+                document.getElementById("cartLink").style.display = "block";
+            } else {
+                // إذا لم يكن هناك اسم مستخدم، إظهار زر "Login" فقط
+                document.getElementById("login").style.display = "inline-block";
+                // إخفاء زر "Edit profile" و "Cart"
+                document.getElementById("editProfileLink").style.display = "none";
+                document.getElementById("cartLink").style.display = "none";
+            }
+        }
+        </script>
+    
+</body>
+
+</html>

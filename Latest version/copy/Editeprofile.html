@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Edit Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="../copy/css/editprofile.css" />
+    <!-- SweetAlert Library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <div>
+                <a class="navbar-brand" href="#">
+                    <img src="imgs/1730475449004.png" alt="">
+                </a>
+                <a class="navbar-brand d-md-none d-sm-none d-lg-inline-block" href="index.html">Moonlight motors</a>
+            </div>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main"
+                aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="main">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active p-2 p-lg-3" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-2 p-lg-3" href="maintenance.html">Maintenance Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-2 p-lg-3" href="Rentals.html">Car Rentals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-2 p-lg-3" href="SpareParts.html">Spart Parts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-2 p-lg-3" href="AboutUs.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-2 p-lg-3" href="AboutUs.html">Contact</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a href="Login.html" class="btn btn-secondary rounded-pill p-3" id="login">Login</a>
+                    </li>
+                </ul>
+    
+                <div class="search ps-3 pe-3 " id="search">
+                    <a href="cart.html" class="nav-link nav-item d-inline-block" >
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div class="nav-item dropdown d-inline-block">
+                        <a class="nav-link dropdown-toggle p-2 p-lg-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="Welcome">
+                            Welcome, User
+                        </a>
+                        <ul class="dropdown-menu p-2 p-lg-3" id="dropdown">
+                            <li><a class="dropdown-item" href="Editeprofile.html" >Edit profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="cart.html" >Cart</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()" >Logout</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Edit Profile Section -->
+    <div class="container my-5">
+        <div class="card p-2">
+            <div class="card-body">
+                <div class="editprofile-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title">Edit Profile</h5>
+                    <button type="button" class="btn btn-secondary rounded-pill p-3" onclick="EditProfile()">Save Changes</button>
+                </div>
+                <form id="editProfileForm" class="row g-3">
+                    <div class="col-md-12">
+                        <label for="username" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="col-12 text-start">
+                        <button type="button" class="btn btn-secondary rounded-pill p-3" data-bs-toggle="modal" data-bs-target="#passwordModal">Edit Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Modal -->
+ <!-- Password Modal -->
+<div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="updatePasswordForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="passwordModalLabel">Edit Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="currentPassword" class="form-label">Current Password</label>
+                        <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="newPassword" class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="newPassword" placeholder="Enter new password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmNewPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmNewPassword" placeholder="Confirm new password" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <div class="social">
+        <div class="section d-flex justify-content-around p-4">
+            <div class="me-5">
+                <span class="text-white">Get connected with us on social networks:</span>
+            </div>
+            <div>
+                <a href="" class="me-4 text-decoration-none">
+                    <i class="fa-brands fa-facebook text-white"></i>
+                </a>
+                <a href="" class="me-4 text-decoration-none">
+                    <i class="fa-brands fa-twitter text-white"></i>
+                </a>
+                <a href="" class="me-4 text-decoration-none">
+                    <i class="fa-brands fa-google text-white"></i>
+                </a>
+                <a href="" class="me-4 text-decoration-none">
+                    <i class="fa-brands fa-instagram text-white"></i>
+                </a>
+                <a href="" class="me-4 text-decoration-none text-white">
+                    <i class="fa-brands fa-linkedin text-white"></i>
+                </a>
+                <a href="" class="me-4 text-decoration-none text-white">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- ending social -->
+
+
+    <!-- start footer -->
+    <div class="footer">
+        <div class="container pt-2">
+            <div class=" text-start">
+
+                <div class="section ">
+                    <div class="container text-start text-md-start mt-5">
+                        <div class="row mt-3">
+                            <!-- Grid column -->
+                            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                <!-- Content -->
+                                <h6 class="text-uppercase fw-bold">Moonlight motors</h6>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #fff; height: 2px" />
+                                <p>
+                                    We strive to provide the best services in car sales, rentals, spare parts, and
+                                    high-quality
+                                    maintenance. Your comfort and trust are our priority.
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+
+                            <!-- Grid column -->
+
+                            <!-- Grid column -->
+
+                            <!-- Grid column -->
+                            <div class="footer-links col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 ">
+                                <!-- Links -->
+                                <h6 class="text-uppercase fw-bold">Useful links</h6>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #fff; height: 2px" />
+                                <p>
+                                    <a href="#!" class="text-white text-decoration-none">Book a Maintenance
+                                        Appointment</a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-white text-decoration-none">Current Offers </a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-white text-decoration-none">About Us </a>
+                                </p>
+
+                            </div>
+                            <!-- Grid column -->
+                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-0">
+                                <!-- Links -->
+                                <h6 class="text-uppercase fw-bold">Contact</h6>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #fff; height: 2px" />
+                                <p><i class="fas fa-home mr-3"></i> zarqa</p>
+                                <p><i class="fas fa-envelope mr-3"></i> admin@Moonlight.motors</p>
+                                <p><i class="fas fa-phone mr-3"></i> +9625667753</p>
+                                <p><i class="fas fa-print mr-3"></i> +9625667753</p>
+                            </div>
+                            <!-- Grid column -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="../copy/js/UpdateUser.js"></script>
+    <script>
+        // التحقق من وجود اسم المستخدم في localStorage
+        window.onload = function() {
+            const userName = localStorage.getItem("firstName");
+            const userGreeting = document.querySelector(".nav-item .dropdown-toggle");
+    
+            if (userName) {
+                // إذا كان يوجد اسم مستخدم، عرض اسمه في الـ nav
+                userGreeting.textContent = `Welcome, ${userName}`;
+                // إخفاء زر "Login"
+                // إظهار زر "Edit profile" و "Cart"
+                document.getElementById("editProfileLink").style.display = "block";
+                document.getElementById("cartLink").style.display = "block";
+            } else {
+                // إذا لم يكن هناك اسم مستخدم، إظهار زر "Login" فقط
+                // إخفاء زر "Edit profile" و "Cart"
+                document.getElementById("editProfileLink").style.display = "none";
+                document.getElementById("cartLink").style.display = "none";
+            }
+        }
+        </script>
+         
+         <script>
+          const token = localStorage.getItem("authToken");
+          console.log(token); 
+          if(token==null)
+          {
+            document.getElementById("login").style.display = "inline-block";
+            document.getElementById("search").style.display = "none";
+            
+    
+    
+          }
+          else{
+            document.getElementById("login").style.display = "none";
+            document.getElementById("search").style.display = "block";
+           
+          }
+    
+        </script>
+</body>
+
+</html>

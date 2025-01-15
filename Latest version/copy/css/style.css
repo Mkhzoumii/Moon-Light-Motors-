@@ -1,0 +1,247 @@
+:root {
+  --color-1: #0d1f23;
+  --color-2: #123e35;
+  --color-3: #2d4a53;
+  --color-4: #69818d;
+  --color-5: #afb3b76b;
+  --color-6: #5a636a;
+  
+  --red-color: #dc3545;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  box-sizing: border-box;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.navbar {
+  background-color: var(--color-1);
+}
+
+.navbar-brand img {
+  width: 70px; 
+  height: auto; 
+}
+
+.navbar .container .navbar-brand {
+  color: white;
+}
+.navbar .container .nav-link {
+  color: white;
+}
+
+.navbar .container .nav-link.active,
+.navbar .container .nav-link:focus,
+.navbar .container .nav-link:hover {
+  color: var(--color-4);
+}
+
+.search {
+  border-left: 1px solid var(--color-4);
+  color: white;
+}
+.search .btn {
+  background-color: var(--color-3);
+  border: none;
+}
+.search .btn:hover{
+  background-color: var(--red-color);
+}
+.navbar .navbar-toggler {
+  border: none;
+  color: white;
+}
+
+.navbar .navbar-toggler:focus {
+  box-shadow: none;
+}
+.dropdown-menu
+{
+  z-index: 5000000;
+}
+
+/* ==========start landing========== */
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #0d1f23, transparent);
+  z-index: 10;
+}
+section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #2d4a53;
+  z-index: 10;
+  mix-blend-mode: color;
+}
+
+section img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#text {
+  position: relative;
+  color: #fff;
+  font-size: 7em;
+  z-index: 1;
+}
+#road {
+  z-index: 2;
+}
+
+/* end landing */
+/* end landing */
+
+/* ==========start features========== */
+
+.features .car {
+  font-size: 80px;
+  color: var(--color-3);
+  transition: ease 0.5s;
+}
+.features .icon-holder {
+  height: 200px;
+}
+.features .icon-holder svg {
+  left: 50%;
+  transform: translateX(-50%);
+  transition: ease 0.5s;
+}
+.features .icon-holder .number {
+  font-size: 12rem;
+  color: var(--color-5);
+  transition: ease 0.5s;
+}
+
+.features .icon-holder .icon {
+  color: var(--color-3);
+}
+/* end features */
+
+/* ==========start work out========== */
+.our-work {
+  background: var(--color-1);
+  color: white;
+}
+
+.our-work ul .active {
+  background-color: var(--color-3);
+  color: white;
+  transition: ease 0.5s;
+}
+
+.our-work ul .active:hover {
+  background-color: var(--red-color);
+  color: white;
+}
+.our-work ul li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.our-work ul li:not(.active):hover {
+  color: var(--color-5);
+}
+
+.our-work .workout-btn{
+  background-color: var(--color-3);
+  border: none;
+  transition: ease 0.5s;
+}
+.our-work .workout-btn:hover{
+  background-color: var(--red-color);
+}
+
+.showbutton {
+  color: #2d4a53;
+}
+.box {
+  padding: 15px;
+  transition: ease-in-out 0.5s;
+}
+.box:hover {
+  transform: scale(1.1);
+}
+
+.card-img-top {
+  height: 150px;
+}
+
+/* end work out */
+
+
+
+
+/* starting project */
+.project{
+  background: var(--color-1);
+  color: white;
+}
+
+.project .btn{
+  background-color: var(--color-3);
+  border: none;
+  transition: ease .5s;
+}
+.project .btn:hover{
+  background-color: var(--red-color);
+}
+/* end project */
+
+/* staring social */
+.social {
+  color: #0d1f23;
+  background-color: var(--color-6);
+}
+/* ending social */
+
+
+/* starting footer */
+.footer {
+  background-color: var( --color-1);
+  color: white;
+ margin-bottom: 0;
+}
+.footer svg {
+  color: white;
+}
+.footer .footer-links{
+  text-decoration: none;
+}
+/* ending footer */
+
+.btn:hover{
+  background-color: var(--red-color);
+}

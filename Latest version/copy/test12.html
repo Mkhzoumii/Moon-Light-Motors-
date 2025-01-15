@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Data Overview</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="width: 300px; height: 300px; margin: auto;">
+      <canvas id="myChart"></canvas>
+      <p id="carCount" style="text-align: center; margin-top: 10px;"></p>
+    </div>
+
+    <div style="width: 300px; height: 300px; margin: auto; margin-top: 50px;">
+      <canvas id="rentalChart"></canvas>
+      <p id="rentalCarCount" style="text-align: center; margin-top: 10px;"></p>
+    </div>
+
+    <div style="width: 600px; height: 400px; margin: auto; margin-top: 50px;">
+      <canvas id="timePriceChart"></canvas>
+      <p id="timePriceInfo" style="text-align: center; margin-top: 10px;"></p>
+    </div>
+
+    <script>
+      // Fetch data for cars
+      async function fetchCarData() {
+        try {
+          const response = await fetch('http://localhost:5002/Cars/GetAllCars');
+          const cars = await response.json();
+
+          const totalCars = cars.length; // Total number of cars
+          const soldCars = cars.filter(car => car.userID !== null).length; // Cars with a valid userID (sold cars)
+          const availableCars = totalCars - soldCars; // Cars without userID (available cars)
+
+          return { totalCars, soldCars, availableCars };
+        } catch (error) {
+          console.error('Error fetching car data:', error);
+          return { totalCars: 0, soldCars: 0, availableCars: 0 }; // Return 0 if there's an error
+        }
+      }
+
+      // Fetch data for rental cars
+      async function fetchRentalCarData() {
+        try {
+          const allCarsResponse = await fetch('http://localhost:5002/CarsForRent/GetCars');
+          const allCars = await allCarsResponse.json();
+
+          const rentalResponse = await fetch('http://localhost:5002/CarsForRent/GetRental');
+          const rentedCars = await rentalResponse.json();
+
+          const allCarIds = new Set(allCars.map(car => car.carID)); // All car IDs in the main table
+          const rentedCount = rentedCars.filter(car => allCarIds.has(car.carID)).length; // Count rented cars with valid IDs in the main table
+          const availableCount = allCars.length - rentedCount; // Total cars - rented cars
+
+          return { totalCars: allCars.length, rentedCount, availableCount, rentedCars };
+        } catch (error) {
+          console.error('Error fetching rental car data:', error);
+          return { totalCars: 0, rentedCount: 0, availableCount: 0, rentedCars: [] }; // Return 0 if there's an error
+        }
+      }
+
+      // Render the charts
+      async function renderCharts() {
+        const { totalCars, soldCars, availableCars } = await fetchCarData();
+
+        // Display the total number of cars and sold cars
+        const carCountElement = document.getElementById('carCount');
+        carCountElement.textContent = `Total Cars: ${totalCars}, Sold Cars: ${soldCars}, Available Cars: ${availableCars}`;
+
+        const carCtx = document.getElementById('myChart');
+
+        new Chart(carCtx, {
+          type: 'pie',
+          data: {
+            labels: ['Available Cars', 'Sold Cars'],
+            datasets: [{
+              label: 'Cars Data',
+              data: [availableCars, soldCars], // Available and sold cars
+              backgroundColor: [
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(255, 99, 132, 0.2)'
+              ],
+              borderColor: [
+                'rgba(75, 192, 192, 1)',
+                'rgba(255, 99, 132, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Cars Data Overview'
+              }
+            }
+          }
+        });
+
+        const { totalCars: rentalTotal, rentedCount, availableCount, rentedCars } = await fetchRentalCarData();
+
+        // Display the rental car data
+        const rentalCarCountElement = document.getElementById('rentalCarCount');
+        rentalCarCountElement.textContent = `Total Rental Cars: ${rentalTotal}, Rented Cars: ${rentedCount}, Available Cars: ${availableCount}`;
+
+        const rentalCtx = document.getElementById('rentalChart');
+
+        new Chart(rentalCtx, {
+          type: 'pie',
+          data: {
+            labels: ['Available Rental Cars', 'Rented Cars'],
+            datasets: [{
+              label: 'Rental Cars Data',
+              data: [availableCount, rentedCount],
+              backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+              ],
+              borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Rental Cars Data Overview'
+              }
+            }
+          }
+        });
+
+        // Time and price chart for rented cars
+        const rentalTimes = rentedCars.map(car => car.rentalTime); // Assuming rentalTime is a field
+        const rentalPrices = rentedCars.map(car => car.price); // Assuming price is a field
+
+        const timePriceCtx = document.getElementById('timePriceChart');
+
+        new Chart(timePriceCtx, {
+          type: 'pie',
+          data: {
+            labels: rentalTimes,
+            datasets: [{
+              label: 'Rental Prices',
+              data: rentalPrices,
+              backgroundColor: 'rgba(153, 102, 255, 0.2)',
+              borderColor: 'rgba(153, 102, 255, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Rental Times and Prices'
+              }
+            },
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Rental Time'
+                }
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: 'Price'
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // Call the function to render the charts
+      renderCharts();
+    </script>
+</body>
+</html>
