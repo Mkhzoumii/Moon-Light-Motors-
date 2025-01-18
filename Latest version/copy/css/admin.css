@@ -79,7 +79,7 @@ input:focus {
 
 
 .content {
-    flex: 1;
+    flex: mnm;
     padding: 20px;
 }
 .card1 .btn{
